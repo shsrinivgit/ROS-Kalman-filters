@@ -1,0 +1,2 @@
+Opened the Rviz to view the published topics
+through rqt_graph
