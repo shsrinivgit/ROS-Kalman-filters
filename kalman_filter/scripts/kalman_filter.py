@@ -25,7 +25,10 @@ measurement_sig = 0.05
 motion = 0.0
 
 ### Add correct_step function HERE ###
-
+def correct_step(mean1, var1, mean2, var2):
+    new_mean = (var1*mean2 + var2*mean1)/(var1+var2)
+    new_var = 1/(1/var1 + 1/var2)
+    return new_mean, new_var
 ### Add predict_step function HERE ###
 
 
