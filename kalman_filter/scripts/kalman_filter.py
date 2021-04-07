@@ -30,8 +30,10 @@ def correct_step(mean1, var1, mean2, var2):
     new_var = 1/(1/var1 + 1/var2)
     return new_mean, new_var
 ### Add predict_step function HERE ###
-
-
+def predict_step(mean1, var1, mean2, var2):
+    new_mean = mean1 + mean2
+    new_var =  var1 + var2
+    return new_mean, new_var
 # Callback function to handle new messages received
 def odom_callback(data):
     global mu, sig
@@ -48,7 +50,10 @@ def odom_callback(data):
     motion = data.data - last_odom_pos
 
     ### ADD KALMAN FILTER CYCLE HERE ###
-
+    mu, sig = predict_step(mu, sig, motion, motion_sig)
+    rospy.loginfo("predict step: [%s, %s]", mu, sig)
+    mu, sig = correct_step(mu, sig, last_measurement, measurement_sig)
+    rospy.loginfo("correct_step: [%s, %s]", mu, sig)
 
     # keep for next filter cycle
     last_odom_pos = data.data
