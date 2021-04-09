@@ -5,3 +5,4 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 Exercise 5.4: roslaunch particle_filter exercise3.launch
 Exercise 5.5: roslaunch particle_filter exercise4.launch
 rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0,0.0, 0.0]' '[0.0, 0.0, 0.2]'
+Unit 5 completed
