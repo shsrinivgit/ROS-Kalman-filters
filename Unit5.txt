@@ -1,3 +1,5 @@
 Exercise 5.2 completed
 Exercise 5.3 : roslaunch particle_filter exercise2.launch
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+Exercise 5.4: roslaunch particle_filter exercise3.launch
